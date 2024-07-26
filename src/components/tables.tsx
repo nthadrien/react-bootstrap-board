@@ -5,14 +5,16 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import {
   MouseEvent,
-  ReactElement
+  ReactElement,
+  useState
 } from "react";
 import { TablesPagination } from "./pagination";
+import { PopModal } from "./modals";
 import classes from "./tables.module.css";
 
-// type BtnProps = {
-//   action: ReactEventHandler;
-// };
+type BtnProps = {
+  action: Function;
+};
 
 type TableProps = {
   data: any[];
@@ -36,11 +38,11 @@ const TableCell = ({row , cell}:{ row:any , cell: string}) : ReactElement => {
 }
 
 
-function TableBtn() {
+function TableBtn({ action }:BtnProps) {
+
   const list: string[] = ["editer", "supprimer", "inspecter", "plus"];
 
-  const threadAction = (e: MouseEvent) =>
-    console.log(e.currentTarget.textContent);
+  const threadAction = (e: MouseEvent) => action(e.currentTarget.textContent);
 
   return (
     <DropdownButton
@@ -62,6 +64,9 @@ function TableBtn() {
 }
 
 export function TablesVersion1({ data }: TableProps) {
+
+  const [ pop , setPop ] = useState<{ open: boolean , data: string }>({ open: false, data: "2" });
+  
   if (!data[0])
     return (
       <div>
@@ -71,9 +76,7 @@ export function TablesVersion1({ data }: TableProps) {
 
   const headings: string[] = data[0] && Object.keys(data[0]).filter( a => a !== "id");
 
-  // const sendAction = () => {
-  //   console.log("s");
-  // };
+  const sendAction = (a:string) => setPop({ open : true , data: a });
  
   return (
     <>
@@ -93,52 +96,13 @@ export function TablesVersion1({ data }: TableProps) {
             data.map( (row, index) => <tr key={row["id"]}>
               <td>{index + 1}</td>
                 {headings.map( cell => <TableCell key={cell} row={row} cell={cell} />)}
-                <td> <TableBtn /> </td>
+                <td> <TableBtn action={sendAction} /> </td>
               </tr>
           )}
         </tbody>
       </Table>
 
-      <TablesPagination />
-    </>
-  );
-}
-
-
-export function TablesVersion2({ data }: TableProps) {
-  if (!data[0])
-    return (
-      <div>
-        <h2>Aucune saisie de données </h2>
-      </div>
-    );
-
-  const headings: string[] = data[0] && Object.keys(data[0]).filter( a => a !== "id");
-
- 
-  return (
-    <>
-      <Table responsive="sx" className="container border border-collapse">
-        <thead>
-          <tr className="text-capitalize">
-            <th>#</th>
-            {headings.map((head) => (
-              <th key={head}> {head.replace("-", " ")} </th>
-            ))}
-            <th>Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {data[0] &&
-            data.map( (row, index) => <tr key={row["id"]}>
-              <td>{index + 1}</td>
-                {headings.map( cell => <TableCell key={cell} row={row} cell={cell} />)}
-                <td> <TableBtn /> </td>
-              </tr>
-          )}
-        </tbody>
-      </Table>
+      <PopModal data={pop} hide={()=>setPop({ open: false, data: ""})} />
 
       <TablesPagination />
     </>

@@ -12,14 +12,19 @@ type ChartProps = {
   title: string;
 };
 
+
+type PieData = { labels: any[]; datasets: any[]; backgroundColor: string[]; borderWidth:number, borderColor: string[]; }
+
 export const PieChart: React.FC<ChartProps> = ({
   title,
   datas,
   moreOnChart,
 }) => {
-  const [points, setPoints] = useState<{ labels: any[]; datasets: any[] }>(
+  const [points, setPoints] = useState<PieData>(
     datas
   );
+
+
 
   useEffect(() => setPoints(datas), [datas]);
 
