@@ -1,10 +1,10 @@
 import React from "react";
-import { CardHeader, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { TablesVersion1, TablesVersion2 } from "../components/tables";
-import { BarChart, LineChart, PieChart } from "../components/charts";
+import { BarChart  } from "../components/charts";
 import db from "../api/db.json";
 import FunIcon from "../assets/icons/funny.svg?react";
 
@@ -97,7 +97,7 @@ const RBoxCard: React.FC<CardProps> = ({ data }) => {
       style={{ width: '100%' }}
       className="mb-2 text-start"
     >
-      <Card.Header>{header}</Card.Header>
+      <Card.Header><FunIcon /> {header}</Card.Header>
       <Card.Body >
         <Card.Title>{variant} {title} </Card.Title>
         <Card.Text>{content && content}</Card.Text>
@@ -142,6 +142,14 @@ export default function Resumes() {
             />
           </Col>
         </Row>
+
+        <Container>
+        <Row className="gap-4 my-4">
+          { cards2.map( card => <Col>
+            <RBoxCard data={card} />
+          </Col>)}
+        </Row>
+      </Container>
 
         <Row className="gap-4 my-4">
           <Col>

@@ -1,8 +1,6 @@
-import { useRouteError, isRouteErrorResponse, redirect, useNavigate } from "react-router-dom";
+import { useRouteError, isRouteErrorResponse, useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/loadingSpinner";
 import { Container, Button } from "react-bootstrap";
-import Footer from "../components/footer";
-import { ReactHTMLElement, ReactInstance } from "react";
 
 export default function ErrorPage() {
 

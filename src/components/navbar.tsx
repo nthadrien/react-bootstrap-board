@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -100,15 +100,15 @@ export function SideNavbar({ handleClose, show }: SideProps) {
         <Offcanvas.Title>Company Dashboard</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body className={classes.sidebar + " d-flex flex-column ps-4"}>
-        <NavLink to="/resumes">
+        <NavLink to="/version1/resumes">
           <PersonIcon /> Tableau de bord
         </NavLink>
         <SideBarAccordion />
         <hr />
-        <NavLink to="/abonnements">
+        <NavLink to="/version1/abonnements">
           <PersonIcon /> abonnements
         </NavLink>
-        <NavLink className="link" to="/historiques">
+        <NavLink className="link" to="/version1/historiques">
           <PersonIcon /> Edition & historiques
         </NavLink>
       </Offcanvas.Body>
@@ -118,7 +118,6 @@ export function SideNavbar({ handleClose, show }: SideProps) {
 
 const SideBarAccordion: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
-  let accord = useRef();
 
   const toggleOpen = (): void => setOpen(!open);
 
@@ -129,30 +128,16 @@ const SideBarAccordion: React.FC = () => {
         Parametrages
       </button>
       <div className={open ? classes.openAccordion : ""}>
-        <NavLink to="/paramètrages/comptes">
+        <NavLink to="/version1/paramètrages/comptes">
           <PersonIcon /> comptes
         </NavLink>
-        <NavLink to="/paramètrages/utilisateurs">
+        <NavLink to="/version1/paramètrages/utilisateurs">
           <PersonIcon /> utilisateurs
         </NavLink>
-        <NavLink to="/paramètrages/opérateurs">
+        <NavLink to="/version1/paramètrages/opérateurs">
           <PersonIcon /> opérateurs
         </NavLink>
       </div>
     </div>
   );
 };
-
-// {allPaths[0] &&
-//   allPaths.map((pat, index) => (
-//     <Nav.Item key={pat.name}>
-//       <NavLink
-//         to={pat.path}
-//         className={({ isActive, isPending }) =>
-//           isPending ? "pending" : isActive ? "active" : ""
-//         }
-//       >
-//         {pat.name}
-//       </NavLink>
-//     </Nav.Item>
-//   ))}

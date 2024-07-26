@@ -3,17 +3,16 @@ import Table from "react-bootstrap/Table";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import React, {
+import {
   MouseEvent,
-  ReactElement,
-  ReactEventHandler
+  ReactElement
 } from "react";
 import { TablesPagination } from "./pagination";
 import classes from "./tables.module.css";
 
-type BtnProps = {
-  action: ReactEventHandler;
-};
+// type BtnProps = {
+//   action: ReactEventHandler;
+// };
 
 type TableProps = {
   data: any[];
@@ -72,9 +71,9 @@ export function TablesVersion1({ data }: TableProps) {
 
   const headings: string[] = data[0] && Object.keys(data[0]).filter( a => a !== "id");
 
-  const sendAction = () => {
-    console.log("s");
-  };
+  // const sendAction = () => {
+  //   console.log("s");
+  // };
  
   return (
     <>
@@ -116,9 +115,6 @@ export function TablesVersion2({ data }: TableProps) {
 
   const headings: string[] = data[0] && Object.keys(data[0]).filter( a => a !== "id");
 
-  const sendAction = () => {
-    console.log("s");
-  };
  
   return (
     <>

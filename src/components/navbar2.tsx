@@ -1,5 +1,4 @@
-import { useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
+
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
@@ -9,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import { NavDropdown } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import { ButtonGroup, NavbarBrand, Accordion } from "react-bootstrap";
+import { ButtonGroup, Accordion } from "react-bootstrap";
 import Icon1 from "../assets/icons/funny.svg?react";
 
 import ThemeSwitcher from "./themeSwitch";
@@ -68,7 +67,9 @@ const TopSearch: React.FC<{}> = () => {
         className="me-2"
         aria-label="Search"
       />
-      <Button variant="outline-success">Search</Button>
+      <Button variant="outline-success">
+        <SearchIcon />
+      </Button>
     </Form>
   );
 };
