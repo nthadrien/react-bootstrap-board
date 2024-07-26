@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 
 type ModalProp = {
   data: { open: boolean, data: string};
-  hide?: Function;
+  hide: Function;
 }
 
 export function PopModal ({ data,  hide }: ModalProp) {

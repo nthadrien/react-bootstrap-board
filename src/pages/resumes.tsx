@@ -10,16 +10,6 @@ import FunIcon from "../assets/icons/funny.svg?react";
 
 // dummmy data
 const boxCh = {
-  labels: ["React", "Vue", "Angular"],
-  datasets: [
-    {
-      data: [6, 8, 9],
-      backgroundColor: ["Blue", "Green", "Red"],
-    },
-  ],
-};
-
-const barChartData = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   datasets: [
     {
@@ -89,23 +79,6 @@ const cards = [
     text: "This card warns about a potential issue.",
     header: "Danger Header",
     title: "Danger Card Title",
-    content:"Pas decider"
-  },
-];
-
-const cards2 = [
-  {
-    variant: "Warning",
-    text: "This card provides a warning message.",
-    header: "Warning Header",
-    title: "Warning Card Title",
-    content:"Pas decider"
-  },
-  {
-    variant: "Info",
-    text: "This card contains informational content.",
-    header: "Info Header",
-    title: "Info Card Title",
     content:"Pas decider"
   },
 ];
