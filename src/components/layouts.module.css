@@ -1,0 +1,35 @@
+.body {
+    overflow: hidden !important;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 100%;
+    height: 100%;
+    gap: 0;
+    overflow: hidden;
+}
+
+.pages {
+    height: 100vh;
+    overflow-y: auto;
+    background: #dddddd1a;
+    padding: 1.2em;
+    width: 100%;
+    padding-bottom: 3rem;
+    border: 1px solid #dddddd58;
+}
+
+@media  screen and ( min-width: 576px) {
+    .content {
+        grid-template-columns: 72px auto;
+    }
+}
+
+@media  screen and ( min-width: 1300px) {
+
+    .content {
+        grid-template-columns: minmax( 250px, 15%) 85%;
+    }
+    
+}

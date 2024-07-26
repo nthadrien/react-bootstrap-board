@@ -1,0 +1,67 @@
+
+.navSearch {
+    width: 100%;
+    max-width: 360px;
+}
+
+.sidebar a,
+.navAccordion a, 
+.navAccordion button {
+    display: grid;
+    grid-template-columns: 34px 150px;
+    justify-content: start;
+    align-items: center;
+    overflow-x: hidden;
+    background-color: inherit;
+    color: inherit;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    font-weight: normal;
+    gap: 16px;
+    text-align: left;
+}
+
+.sidebar a:active {
+    font-weight: 300 !important;
+    border: 1ps solid #aea7a7 !important;
+}
+
+
+
+.navAccordion button {
+    padding: 1rem;
+}
+
+.navAccordion > div {
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.8s ease-in;
+}
+
+.navAccordion .ico {
+    transform: rotate(180deg);
+}
+
+.navAccordion .openAccordion {
+    max-height: fit-content;
+}
+
+.noo::after {
+    display: none; 
+}
+
+@media screen and (min-width: 560px ) {
+    .noo span {
+        color: red;
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 768px ) {
+    .noo::after {
+        display: inline; 
+        color: red;
+    }
+}

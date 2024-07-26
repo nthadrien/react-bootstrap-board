@@ -1,0 +1,19 @@
+{
+    "user":{
+        "username":"admin",
+        "role":"admin",
+        "password":"admin",
+        "gender":"male"
+    },
+    "users":[
+        { "id":1, "username":"ecric", "role":"manager","joined":"2015-08-05","online":true,"gender":"male"},
+        { "id":2, "username":"bahat", "role":"client","joined":"2015-01-21","online":true, "gender":"male"},
+        { "id":3, "username":"baham", "role":"agent","joined":"2022-03-06","online":true, "gender":"male"},
+        { "id":4, "username":"Mokeu", "role":"client","joined":"2003-06-05","online":true, "gender":"male"},
+        { "id":5, "username":"Orellia", "role":"agent","joined":"2024-034-13","online":true, "gender":"male"}
+    ],
+    "orders":[
+        {"id":1, "user":4, "status":"pending", "articles":[ {"id":3, "name":"produit 1"}, { "id": 2, "name":"produit 2"}], "delivery-agent":5, "orderAt":"2003-06-05", "total":4500},
+        {"id":2, "user":2, "status":"progress", "articles":[ {"id":5, "name":"produit 4"}, { "id": 2, "name":"produit 2"}], "delivery-agent":3, "orderAt":"2013-06-05", "total":7800}
+    ]
+}
